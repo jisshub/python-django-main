@@ -25,3 +25,19 @@ def about(request):
 def home(request):
     # print('hai')
     return render(request, 'firstApp/index.html')
+
+
+def func2(request):
+    states = {'each': ['kerala', 'TN', 'karnataka']}
+    return render(request, 'firstApp/new.html', context=states)
+
+
+def func(request):
+    # payment_dict = {'id': 32328,
+    #                 'payee': 'Ajith',
+    #                 'amount': 3000,
+    #                 }
+    # data = {'name': ['ajith', 'aju', 'robin']}
+    country_name = {'names': ['india', 'pakistan', 'usa']}
+
+    return render(request, 'firstApp/dict.html', context=country_name)
