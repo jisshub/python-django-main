@@ -27,14 +27,101 @@ creating a django app
 ----------------------------
 python manage.py startapp events
 
+-- later, register the app with django project
 
 
-dtl
--------
+creting superuser
+-------------------
+python manage.py createsuperuser
+
+username=admin
+password=admin
+
+
+dtl(Django template language)
+----------------------------------------
 
 {{}} -- to display the text in template
 
 {% %} -- to do for loop, conditions..
+
+
+
+ORM
+--------
+
+shell in django
+-------------------
+
+python manage.py shell
+
+from appname.models import MOdelName
+
+-- selecting data from models
+
+obj = Employee.objects.all()
+print(obj)
+
+<QuerySet [<Employee: jiss>, <Employee: jerin>, <Employee: jaisil>]>
+
+
+creating objects using shell
+----------------------------------
+emp1 = Employee(empname='David', salary=4000, designation='hr', gender='F')
+
+
+emp1.save() -- saves the object to queryset
+
+obj = Employee.objects.all()
+print(obj)
+
+<QuerySet [<Employee: jiss>, <Employee: jerin>, <Employee: jaisil>, <Employee: David>]>
+
+Another Easy Method
+---------------
+Event.objects.create(event_name='Annual Conference', manager='Sooraj', attendees=1000, venue=Venue.objects.get(id=2))
+
+--it will default create and save the object
+
+
+Retrieving records from models
+----------------------------------
+Employee.objects.get(pk=1)
+
+-- get employee record with pk 1
+
+Filetering thru records
+-----------------------
+
+Employe.objects.filter(empname__startswith = 's')
+
+--get th records of employee with name starts with 's'
+
+Employee.objects.filter(salary__gte=10000)
+
+
+Updating a record
+---------------------
+new = Employee.object.get(pk=3)
+new.designation = 'full stack dev'
+new.save()
+
+uploading files from shell
+--------------------------
+from django.core.files import Files
+venue1=Venue(nmae='sadas',rate='asdas',address='dadada')
+venue1.photo.save('image.jpg', File(open('/pictures/image.jpg', 'rb')))
+
+
+Deleting a record using shell
+--------------------------------
+Venue.objects.filter(venue_name='Carnival').delete()
+
+--it deletes the given venue and also the associated events from Event Model.
+
+
+
+
 
 
 

@@ -1,2 +1,7 @@
-/.idea
-/venv
+.idea/
+venv/
+*.pyc
+media/
+hellosite_root/db.sqlite3/
+__pycache__/
+pictures/

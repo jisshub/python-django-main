@@ -1,0 +1,22 @@
+Models
+--------
+
+Event
+------
+id - pks
+name -charfield
+date -datefield
+venue - charfield - fk
+event_manager - charfield
+attendees - integerfield
+
+Venue
+------
+id - pk
+name - charfield
+address - textfield
+rate - integerfield
+
+
+
+

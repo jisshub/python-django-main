@@ -9,4 +9,17 @@ class Employee(models.Model):
     designation = models.CharField(max_length=30)
     gender = models.CharField(max_length=3)
 
+    def __str__(self):
+        return self.empname
 
+
+# class Course(models.Model):
+#     course = models.CharField(max_length=30)
+#
+#     def __str__(self):
+#         return self.course
+#
+#
+# class Trainer(models.Model):
+#     name = models.CharField(max_length=30)
+#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
