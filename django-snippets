@@ -120,9 +120,17 @@ Venue.objects.filter(venue_name='Carnival').delete()
 --it deletes the given venue and also the associated events from Event Model.
 
 
+{{ forloop.counter }} - to increment a value in dtl.
+it starts with 1 and increments until loop finishes.
 
 
 
 
+{% for events in details %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{events.event_name}}</td>
+            <td>{{events.venue}}</td>
+        </tr>
 
-
+{% endfor%}

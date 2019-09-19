@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.http import HttpResponse
+from .models import *
 
 
 # def index(request):
@@ -41,3 +42,9 @@ def func(request):
     country_name = {'names': ['india', 'pakistan', 'usa']}
 
     return render(request, 'firstApp/dict.html', context=country_name)
+
+
+def employee(request):
+    employee_list = Employee.objects.order_by('salary')
+    data = {'employees': employee_list}
+    return render(request, 'firstApp/empl.html', data)

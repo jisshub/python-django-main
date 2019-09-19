@@ -24,4 +24,5 @@ urlpatterns = [
     path('index/', views.home),
     path('dict/', views.func),
     path('new/', views.func2),
+    path('list/', views.employee),
 ]
